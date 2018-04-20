@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>codebreaker</title>
+
+<script src="/pageScripts.js"></script>
+<script src="/gameScripts.js"></script>
+
+<link rel="stylesheet" type="text/css" href="codebreakercss.css"/>
+
+</head>
+
+<!--Open the new game menu when the body loads-->
+<body onload="endGame()">
+
+<center>
+
+<br/>
+
+<div id="titleContainer" class="containerDiv">
+
+    <p style="font-size:42px;">CODEBREAKER<span style="font-size:16px;">v1.0</span></p>
+
+</div>
+
+</br>
+
+<div id="gameContainer" class="containerDiv">
+
+    <table id="gameInputs">
+    
+        <td>
+        
+            <input name="numInput" class="numInput" maxlength="1" onkeyup="inputLimit(this);"></input>
+        
+        </td>
+        
+        <td>
+        
+            <input name="numInput" class="numInput" maxlength="1" onkeyup="inputLimit(this);"></input>
+        
+        </td>
+        
+        <td>
+        
+            <input name="numInput" class="numInput" maxlength="1" onkeyup="inputLimit(this);"></input>
+        
+        </td>
+        
+        <td>
+        
+            <input name="numInput" class="numInput" maxlength="1" onkeyup="inputLimit(this);"></input>
+        
+        </td>
+        
+        <td>
+        
+            <input name="numInput" class="numInput" maxlength="1" onkeyup="inputLimit(this);"></input>
+        
+        </td>
+        
+        <td>
+        
+            <input name="numInput" class="numInput" maxlength="1" onkeyup="inputLimit(this);"></input>
+        
+        </td>
+    
+    </table>
+
+    <p id="successLabel" class="hidden">Success!</p>
+    <p id="lossLabel" class="hidden" style="color:red;" onmouseover="toggleLossLabelText(0)" onmouseleave="toggleLossLabelText(1)">Game Over.</p>
+    
+    <div id="buttonsContainer">
+        
+        <p id="attemptsLabel">Attempts:</p>
+        
+        <button name="checkButton" id="checkButton" onclick="checkCode();">CHECK</button>
+    
+    </div>
+    
+</div>
+
+<br/>
+
+<div id="controlsContainer" class="containerDiv" style="padding-top:5px">
+    
+    <a href="#" id="hideControls" onclick="toggleControlsMenu()">SysControls</a>
+
+    <span id="controlsToHide">
+    
+    <button name="helpBut" id="helpButton" onclick="helpHider(1);">HELP</button>
+    
+    <button name="newGame" id="newGameButton" onclick="toggleNewGameMenu()">NEW GAME</button>
+    
+    <div id="difficultyContainer" class="hidden">
+        
+        <table style="width:346px;">
+        
+            <tr>
+        
+                <td><p id="attemptsLabel">Difficulty:</p></td>
+        
+                <td><button name="difficulty1" class="difficultyButton" onclick="initialiseGame(1);">1</button></td>
+                <td><button name="difficulty2" class="difficultyButton" onclick="initialiseGame(2);">2</button></td>
+                <td><button name="difficulty3" class="difficultyButton" onclick="initialiseGame(3);">3</button></td>
+    
+            </tr>
+    
+        </table>
+    
+    </div>
+    
+    </span>
+
+</div>
+
+<div id="helpContainer" class="containerDiv hidden" style="padding-top:5px;width:420px;">
+    
+    <div style="height:20px;">
+    
+        <div id="helpCloseButton" onclick="helpHider(0);">X</div>
+    
+    </div>
+    
+    <table style="width:346px;">
+    
+        <tr>
+        
+        <th style="width:35%;">
+        </th>
+        <th style="width:65%;">
+        </th>
+        
+        </tr>
+    
+        <tr>
+        
+            <td colspan="2">
+                
+                <p style="font-size:14px;">Welcome to <span style="color:lime;">CODEBREAKER</span>.<br/><br/>
+                   The game is simple. You must figure out the code to bypass the puzzle.
+                   This is done by entering digits into the control panel above, which will tell you how close you are.
+                   
+                </p>
+            
+            </td>
+        
+        </tr> 
+        <tr><td colspan="2"><div style="height:10px;"></div></td></tr>
+        <tr>
+        
+            <td>
+                
+                <input style="height:60px;width:46px;margin-left:40px;background-color:green;" disabled="true"></input>
+                
+            </td>
+        
+            <td>
+                
+                <p style="font-size:10px;overflow:visible;display:block;">
+                   CORRECT - The digit in this box is 100% correct: both the right digit and in the right location.
+                </p>
+            
+            </td>
+        
+        </tr> 
+        
+        <tr><td colspan="2"><div style="height:10px;"></div></td></tr>
+        <tr>
+        
+            <td>
+                
+                <input style="height:60px;width:46px;margin-left:40px;border:1px solid green;background-color:indianred;" disabled="true"></input>
+                
+            </td>
+        
+            <td>
+                
+                <p style="font-size:10px;overflow:visible;display:block;">
+                   PART CORRECT - The digit in this box is in the code, but not at this location.
+                </p>
+            
+            </td>
+        
+        </tr> 
+        
+        <tr><td colspan="2"><div style="height:10px;"></div></td></tr>
+        <tr>
+        
+            <td>
+                
+                <input style="height:60px;width:46px;margin-left:40px;background-color:red;" disabled="true"></input>
+                
+            </td>
+        
+            <td>
+                
+                <p style="font-size:10px;overflow:visible;display:block;">
+                   INCORRECT - The digit in this box does not feature in the code at all.
+                </p>
+            
+            </td>
+        
+        </tr> 
+        
+        <tr><td colspan="2"><div style="height:8px;"></div></td></tr>
+        
+        <td colspan="2">
+                
+                <p style="font-size:14px;float:center;">
+                   Choose a difficulty to begin.
+                </p>
+            
+            </td>
+        
+        <tr><td colspan="2"><div style="height:16px;"></div></td></tr>
+    
+    </table>
+
+</div>
+
+</center>
+
+</body>
+
+</html>

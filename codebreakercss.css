@@ -1,0 +1,205 @@
+*
+{
+
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    list-style:none;
+    color:green;
+    background-color:black;
+    font-family:"Courier New";
+    overflow:hidden;
+    
+}
+
+*:focus
+{
+
+    outline:none !important;
+
+}
+
+.containerDiv
+{
+    
+    width:400px;
+    height:auto;
+    border:1px solid green;
+    background-color:black;
+
+}
+
+#titleContainer
+{
+
+    height:50px;
+
+}
+
+#gameContainer
+{
+
+    width:400px;
+
+}
+
+#buttonsContainer, #difficultyContainer
+{
+
+    width:346px;
+    height:40px;
+    margin:0px 5px 10px 5px;
+
+}
+
+#helpContainer
+{
+
+    position: absolute;
+    top:80px;
+    left:50%;
+    margin-left:-210px;
+    z-index: 1;
+    
+}
+
+#helpCloseButton
+{
+    
+    height:16px;
+    width:16px;
+    border:1px solid green;
+    float:right;
+    margin-right:8px;
+    cursor:pointer;
+    
+}
+
+.numInput
+{
+
+    height:60px;
+    width:46px;
+    font-size:30px;
+    text-align:center;
+    border:1px solid green;
+    margin:10px 5px 10px 5px;
+    
+}
+
+.numInput:focus, .correct
+{
+
+    outline: none !important;
+    background-color:green;
+    color:black;
+    border:none;
+    
+}
+
+.partialWrong
+{
+
+    background-color:indianred;
+
+}
+
+.fullWrong
+{
+
+    background-color:red;
+    border:none;
+
+}
+
+
+#checkButton
+{
+    
+    float:right;
+    margin-right:10px;
+    margin-top:8px;
+    width:76px;
+    border:1px solid green;
+
+}
+
+#checkButton:hover, .difficultyButton:hover, #newGameButton:hover, #helpButton:hover, #hideControls:hover
+{
+
+    background-color:green;
+    color:black;
+    cursor:pointer;
+
+}
+
+#checkButton:focus, .difficultyButton:focus, #newGameButton:focus, #helpButton:focus
+{
+
+    outline:none !important;
+
+}
+
+#attemptsLabel
+{
+
+    float:left;
+    margin-left:10px;
+    margin-top:12px;
+    display:inline-block;
+
+}
+
+#controlsContainer, #difficultyContainer
+{
+
+    height:auto;
+
+}
+
+.hiddenControls
+{
+
+    border:none;
+
+}
+
+#hideControls
+{
+
+    text-decoration:none;
+
+}
+
+.hidden
+{
+
+    display:none;
+
+}
+
+.difficultyButton
+{
+
+    width:40px;
+    border:1px solid green;
+    
+}
+
+#newGameButton, #helpButton
+{
+
+    display:block;
+    margin:10px 0px 0px 0px;
+
+}
+
+#controlsContainer
+{
+
+    padding-bottom:10px;
+
+}
