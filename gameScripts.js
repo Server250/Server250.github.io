@@ -50,6 +50,10 @@ function setupUi(dif)
     // Hide success text
     document.getElementById("successLabel").classList.add("hidden");
     
+	// Hide loss text and revert it to default
+    document.getElementById("lossLabel").classList.add("hidden");
+	document.getElementById("lossLabel").innerHTML = "Game Over.";
+	
     // Reset all inputs
     for (var i = 0; i<6; i++)
     {
